@@ -631,7 +631,7 @@ controller:
       {{- if .Values.executor.extraEnvVars }}
       env: {{- include "common.tplvalues.render" (dict "value" .Values.executor.extraEnvVars "context" $) | nindent 4 }}
       {{- end }}
-      {{- if .Values.executor.podSecurityContext }}
+      {{- if .Values.executor.containerSecurityContext.enabled }}
       securityContext: {{- include "common.tplvalues.render" (dict "value" .Values.executor.containerSecurityContext "context" $) | nindent 4 }}
       {{- end }}
     {{- end }}
